@@ -1,8 +1,10 @@
 import Head from "next/head";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
+import MediumCard from "../components/MediumCard";
+import SmallCard from "../components/SmallCard";
 
-export default function Home() {
+export default function Home({ exploreData, cardData }) {
 	return (
 		<div className="">
 			<Head>
@@ -16,6 +18,58 @@ export default function Home() {
 
 			<Header />
 			<Banner />
+
+			<main className="max-w-7xl mx-auto px-8 sm:px-16">
+				<section className="pt-6">
+					<h2 className="text-4xl font-semibold pb-5">
+						Explore Nearby
+					</h2>
+
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+						{exploreData?.map((item, i) => (
+							<SmallCard
+								key={i}
+								img={item.img}
+								distance={item.distance}
+								location={item.location}
+							/>
+						))}
+					</div>
+				</section>
+
+				<section>
+					<h2 className="text-4xl font-semibold py-8">
+						Live Anywhere
+					</h2>
+
+					<div>
+						{cardData?.map((item, i) => (
+							<MediumCard
+								key={i}
+								img={item.img}
+								title={item.tile}
+							/>
+						))}
+					</div>
+				</section>
+			</main>
 		</div>
 	);
+}
+
+export async function getStaticProps() {
+	const response_exploreData = await fetch("https://links.papareact.com/pyp");
+	const exploreData = await response_exploreData.json();
+
+	const response_cardData = await fetch("https://links.papareact.com/zp1");
+	const cardData = await response_cardData.json();
+
+	// console.log(cardData, exploreData)
+
+	return {
+		props: {
+			exploreData: exploreData,
+			cardData: cardData,
+		},
+	};
 }
