@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
+import Mapper from "../components/Mapper";
 
 function Search({ searchResults }) {
 	const router = useRouter();
@@ -47,6 +48,10 @@ function Search({ searchResults }) {
 							/>
 						))}
 					</div>
+				</section>
+
+				<section className="hidden xl:inline-flex xl:min-w-[600px]">
+					<Mapper searchResults={searchResults} />
 				</section>
 			</main>
 			<Footer />
