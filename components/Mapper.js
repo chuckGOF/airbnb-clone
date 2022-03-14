@@ -40,23 +40,23 @@ function Mapper({ searchResults }) {
 		>
 			{searchResults.map((result) => (
 				<div key={result.long}>
-					{/* <Marker
+					<Marker
 						longitude={result.long}
 						latitude={result.lat}
 						offsetLeft={-20}
 						offsetTop={-10}
 						anchor="bottom"
 					>
-						{/* <p
+						<p
 							role="img"
 							aria-label="push-pin"
 							onClick={() => setSelectedLocation(result)}
 							className="cursor-pointer text-2xl animate-bounce"
 						>
 							📍
-						</p> */}
+						</p>
 						<img src="https://links.papareact.com/qd3" alt="📍" />
-					</Marker> */}
+					</Marker>
 
 					{/* Popup that shows when we click on a Marker */}
 					{selectedLocation.long === result.long ? (
