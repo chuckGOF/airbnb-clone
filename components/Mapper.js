@@ -47,14 +47,14 @@ function Mapper({ searchResults }) {
 						offsetTop={-10}
 						anchor="bottom"
 					>
-						{/* <p
+						<p
 							role="img"
 							aria-label="push-pin"
 							onClick={() => setSelectedLocation(result)}
 							className="cursor-pointer text-2xl animate-bounce"
 						>
 							📍
-						</p> */}
+						</p>
 						<img src="https://links.papareact.com/qd3" alt="📍" />
 					</Marker>
 
