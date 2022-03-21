@@ -51,7 +51,7 @@ function Mapper({ searchResults }) {
 							role="img"
 							aria-label="push-pin"
 							onClick={() => setSelectedLocation(result)}
-							className="cursor-pointer text-2xl animate-bounce"
+							className="cursor-pointer text-2xl animate-bounce text-sm"
 						>
 							📍
 						</p>
